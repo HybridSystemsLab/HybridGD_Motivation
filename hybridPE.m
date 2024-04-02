@@ -64,7 +64,6 @@ classdef hybridPE < HybridSystem
             u = z(11);
             
             g_d = [0; 0];
-            % phi_d = (pi/3)*[1 2; 2 4];
             phi_d = [1 2; 2 4];
             xplus = g_d + phi_d*this.theta;
 
@@ -77,11 +76,6 @@ classdef hybridPE < HybridSystem
                 etaplus = eta;
                 psiplus = psi;
             else
-%                 y_d = xmplus - f_d;
-%                 thetahatplus = thetahat + (phi_d.'/(this.gammad + norm(phi_d)^2))*(y_d - phi_d*thetahat);
-%                 psiplus = (1 - this.lambdad)*psi;
-%                 etaplus = (1 - this.lambdad)*(xm + eta) - xmplus;
-                
                 psiplus = (1-this.lambdad)*psi + phi_d;
                 etaplus = (1-this.lambdad)*(xm + eta) - g_d;
                 yplus = xmplus + etaplus;
